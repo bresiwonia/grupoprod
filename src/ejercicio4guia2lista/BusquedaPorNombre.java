@@ -33,6 +33,8 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
         jtProductos = new javax.swing.JTable();
         jtNombre = new javax.swing.JTextField();
 
+        setPreferredSize(new java.awt.Dimension(675, 600));
+
         jLabel1.setText("Listado por nombre");
 
         jLabel2.setText("Escriban los primeros caracteres");
