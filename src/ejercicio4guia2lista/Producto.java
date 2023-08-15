@@ -11,6 +11,7 @@ package ejercicio4guia2lista;
  */
     public class Producto implements Comparable<Producto>{
     //hola
+        //hola
     private int codigo;
     private String descripcion;
     private double precio;
