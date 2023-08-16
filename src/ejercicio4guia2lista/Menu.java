@@ -70,6 +70,11 @@ public static TreeSet<Producto> listaProductos= new TreeSet<>();
         jMenu2.setText("Consultas");
 
         jMenuItem2.setText("Por Rubro...");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Por Nombre...");
@@ -81,6 +86,11 @@ public static TreeSet<Producto> listaProductos= new TreeSet<>();
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Por Precio");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -117,6 +127,27 @@ public static TreeSet<Producto> listaProductos= new TreeSet<>();
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        porRubro bpr=new porRubro();
+        bpr.setVisible(true);
+        Escritorio.add(bpr);
+    Escritorio.moveToFront(bpr);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        porPrecio bpp=new porPrecio();
+        bpp.setVisible(true);
+        Escritorio.add(bpp);
+    Escritorio.moveToFront(bpp);
+                                             
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +196,7 @@ public static TreeSet<Producto> listaProductos= new TreeSet<>();
     // End of variables declaration//GEN-END:variables
 private void cargarProductos (){
     listaProductos.add(new Producto(0123, "Azucar", 200.56, 2, Categoria.COMESTIBLE));
-    listaProductos.add(new Producto(0123, "PERFUME BEBE", 500.56, 2, Categoria.PERFUMERIA));
-    listaProductos.add(new Producto(0123, "SECADOR DE PISO", 200.56, 2, Categoria.LIMPIEZA));
+    listaProductos.add(new Producto(01253, "PERFUME BEBE", 500.56, 2, Categoria.PERFUMERIA));
+    listaProductos.add(new Producto(01223, "SECADOR DE PISO", 200.56, 2, Categoria.LIMPIEZA));
 }
 }
