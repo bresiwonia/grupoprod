@@ -18,6 +18,7 @@ public static TreeSet<Producto> listaProductos= new TreeSet<>();
      */
     public Menu() {
         initComponents();
+        cargarProductos();
     }
 
     /**
@@ -162,4 +163,9 @@ public static TreeSet<Producto> listaProductos= new TreeSet<>();
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
+private void cargarProductos (){
+    listaProductos.add(new Producto(0123, "Azucar", 200.56, 2, Categoria.COMESTIBLE));
+    listaProductos.add(new Producto(0123, "PERFUME BEBE", 500.56, 2, Categoria.PERFUMERIA));
+    listaProductos.add(new Producto(0123, "SECADOR DE PISO", 200.56, 2, Categoria.LIMPIEZA));
+}
 }
