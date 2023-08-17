@@ -78,6 +78,11 @@ package ejercicio4guia2lista;
     
     
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock + ", rubro=" + rubro + '}';
+    }
          
     
     

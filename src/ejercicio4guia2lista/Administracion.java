@@ -5,6 +5,7 @@
  */
 package ejercicio4guia2lista;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,14 +39,14 @@ public class Administracion extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jSalir = new javax.swing.JButton();
         jtCodigo = new javax.swing.JTextField();
-        jtdesc = new javax.swing.JTextField();
+        jtNombre = new javax.swing.JTextField();
         jtPrecio = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jtStock = new javax.swing.JTextField();
-        jButtonEliminar = new javax.swing.JButton();
-        jButtonLupa = new javax.swing.JButton();
+        jEliminar = new javax.swing.JButton();
+        jBuscar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -75,11 +76,28 @@ public class Administracion extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton3.setText("Salir");
+        jSalir.setText("Salir");
+        jSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSalirActionPerformed(evt);
+            }
+        });
 
         jtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtCodigoActionPerformed(evt);
+            }
+        });
+
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtNombreKeyReleased(evt);
+            }
+        });
+
+        jtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtPrecioKeyTyped(evt);
             }
         });
 
@@ -95,12 +113,17 @@ public class Administracion extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonEliminar.setText("Eliminar");
-
-        jButtonLupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejercicio4guia2lista/Image20230816203923.png"))); // NOI18N
-        jButtonLupa.addActionListener(new java.awt.event.ActionListener() {
+        jEliminar.setText("Eliminar");
+        jEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLupaActionPerformed(evt);
+                jEliminarActionPerformed(evt);
+            }
+        });
+
+        jBuscar.setText("jButton2");
+        jBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBuscarActionPerformed(evt);
             }
         });
 
@@ -116,54 +139,55 @@ public class Administracion extends javax.swing.JInternalFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jButtonGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonEliminar))
+                        .addComponent(jEliminar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(175, 175, 175)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                                .addComponent(jtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                                    .addComponent(jtdesc)
-                                    .addComponent(jtCodigo))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonLupa)))
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jSalir)
                 .addGap(49, 49, 49))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(jtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                            .addComponent(jtNombre)
+                            .addComponent(jtCodigo))))
+                .addGap(69, 69, 69)
+                .addComponent(jBuscar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLupa))
+                    .addComponent(jBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jtdesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -179,9 +203,9 @@ public class Administracion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalir)
                     .addComponent(jButtonGuardar)
-                    .addComponent(jButton3)
-                    .addComponent(jButtonEliminar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jSalir)
+                    .addComponent(jEliminar))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,15 +213,13 @@ public class Administracion extends javax.swing.JInternalFrame {
 
     private void jtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigoActionPerformed
         // TODO add your handling code here:
+
+
     }//GEN-LAST:event_jtCodigoActionPerformed
 
     private void jtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtStockActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtStockActionPerformed
-
-    private void jButtonLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLupaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonLupaActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -209,17 +231,17 @@ public class Administracion extends javax.swing.JInternalFrame {
         jtCodigo.setText("");
         jtPrecio.setText("");
         jtStock.setText("");
-        jtdesc.setText("");
+        jtNombre.setText("");
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-        if (jtCodigo.getText().isEmpty() || jtdesc.getText().isEmpty() || jtPrecio.getText().isEmpty() || jtStock.getText().isEmpty()) {
+        if (jtCodigo.getText().isEmpty() || jtNombre.getText().isEmpty() || jtPrecio.getText().isEmpty() || jtStock.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Complete todos los campos");
         } else {
             try {
                 int codigo = Integer.parseInt(jtCodigo.getText());
-                String descripcion = jtdesc.getText();
+                String descripcion = jtNombre.getText();
                 double precio = Double.parseDouble(jtPrecio.getText());
                 Categoria rubro = (Categoria) jComboBox1.getSelectedItem();
                 int stock = Integer.parseInt(jtStock.getText());
@@ -230,7 +252,7 @@ public class Administracion extends javax.swing.JInternalFrame {
                 jtCodigo.setText("");
                 jtPrecio.setText("");
                 jtStock.setText("");
-                jtdesc.setText("");
+                jtNombre.setText("");
 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Debe ingresar numero en los campos codigo, precio, stock.");
@@ -239,28 +261,75 @@ public class Administracion extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
+    private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
+        // TODO add your handling code here:
+
+        for (Producto prod : Menu.listaProductos) {
+            if (prod.getCodigo() == Integer.parseInt(jtCodigo.getText())) {
+                jtNombre.setText(prod.getDescripcion());
+                jtPrecio.setText(prod.getPrecio() + "");
+                jtStock.setText(prod.getStock() + "");
+            }
+        }
+    }//GEN-LAST:event_jBuscarActionPerformed
+
+    private void jtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyReleased
+        // TODO add your handling code he
+    }//GEN-LAST:event_jtNombreKeyReleased
+
+    private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jSalirActionPerformed
+
+    private void jEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEliminarActionPerformed
+        // TODO add your handling code here:
+        if (jtCodigo.getText().isEmpty() || jtNombre.getText().isEmpty() || jtPrecio.getText().isEmpty() || jtStock.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Complete todos los campos");
+        } else {
+
+            JOptionPane.showMessageDialog(this, "producto eliminado");
+            Producto a = new Producto(Integer.parseInt(jtCodigo.getText()), "", 0, 0, Categoria.PERFUMERIA);
+            Menu.listaProductos.remove(a);
+
+            jtCodigo.setText("");
+            jtPrecio.setText("");
+            jtStock.setText("");
+            jtNombre.setText("");
+    }//GEN-LAST:event_jEliminarActionPerformed
+    }                                         
+
+    private void jtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar(); // Convierte la tecla precionada en un caracter y luego los compara con los que siquiero que se cargen!!
+  if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE) && (caracter != '.' || jtPrecio.getText().contains("."))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtPrecioKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jBuscar;
     private javax.swing.JButton jButtonGuardar;
-    private javax.swing.JButton jButtonLupa;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JComboBox<Categoria> jComboBox1;
+    private javax.swing.JButton jEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jSalir;
     private javax.swing.JTextField jtCodigo;
+    private javax.swing.JTextField jtNombre;
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtStock;
-    private javax.swing.JTextField jtdesc;
     // End of variables declaration//GEN-END:variables
 private void cargarCombo() {
         jComboBox1.addItem(Categoria.LIMPIEZA);
         jComboBox1.addItem(Categoria.COMESTIBLE);
         jComboBox1.addItem(Categoria.PERFUMERIA);
     }
+
 }
